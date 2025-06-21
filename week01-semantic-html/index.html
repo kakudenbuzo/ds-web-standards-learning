@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カードUIデザイン</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Card UI without considering semantics -->
+        <div class="card">
+            <img class="card__img" src="https://picsum.photos/600/400"/>
+            <div class="card__content">
+                <div class="card__title">Webアクセシビリティの重要性が高まる現代社会</div>
+                <div class="card__summary">デジタル時代において、すべてのユーザーが平等にウェブコンテンツにアクセスできる環境づくりが企業の責任として注目されています。</div>
+                <div class="card__action">
+                    <button class="card__action-btn" onclick="window.open('https://developer.mozilla.org/ja/docs/Glossary/Semantics', '_blank', 'noopener')">続きを読む</button>
+                </div>
+                <div class="card__date">2024年6月21日</div>
+            </div>
+        </div>
+        <!-- Card UI with semantic HTML -->
+        <article class="card">
+            <img class="card__img" src="https://picsum.photos/600/400" alt="雪山の頂上にある十字架" />
+            <div class="card__content">
+                <h2 class="card__title">Webアクセシビリティの重要性が高まる現代社会</h2>
+                <p class="card__summary">デジタル時代において、すべてのユーザーが平等にウェブコンテンツにアクセスできる環境づくりが企業の責任として注目されています。</p>
+                <div class="card__action">
+                    <a href="https://developer.mozilla.org/ja/docs/Glossary/Semantics" class="card__action-btn" target="_blank" rel="noopener noreferrer">続きを読む</a>
+                </div>
+                <time class="card__date" datetime="2024-06-21">2024年6月21日</time>
+            </div>
+        </article>
+    </div>
+</body>
+</html>
+<style>
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.card {
+    display: flex;
+    /* flex-direction: row; */
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+.card__img {
+    min-width: 200px;
+    object-fit: cover;
+    width: 100%;
+    height: 180px;
+}
+.card__content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+.card__title {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+.card__summary {
+    font-size: 0.95em;
+    margin: 0 0 auto 0;
+    color: #555;
+    line-height: 1.5;
+}
+.card__date {
+    font-size: 0.9em;
+    color: #222; /* より濃いグレーでコントラスト改善 */
+    margin: 15px 0 0 0;
+    text-align: right;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+.card__action {
+    margin: 15px 0 0 0;
+}
+.card__action-btn {
+    background-color: #174ea6; /* より濃い青でコントラスト改善 */
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.95em;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    letter-spacing: 0.03em;
+}
+.card__action-btn:hover,
+.card__action-btn:focus {
+    background-color: #0d3576;
+    outline: 2px solid #0d3576;
+    outline-offset: 2px;
+}
+</style>
