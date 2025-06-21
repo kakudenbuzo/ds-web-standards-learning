@@ -6,7 +6,7 @@
     <title>カードUIデザイン</title>
 </head>
 <body>
-    <div class="container">
+    <div class="cards-container">
         <!-- Card UI without considering semantics -->
         <div class="card">
             <img class="card__img" src="https://picsum.photos/600/400"/>
@@ -35,7 +35,7 @@
 </body>
 </html>
 <style>
-.container {
+.cards-container {
     display: flex;
     flex-direction: row;
     gap: 30px;
@@ -118,7 +118,7 @@
     outline-offset: 2px;
 }
 @media (max-width: 768px) {
-    .container {
+    .cards-container {
         flex-direction: column;
         align-items: center;
     }
